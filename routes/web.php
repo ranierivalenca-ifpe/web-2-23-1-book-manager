@@ -36,6 +36,9 @@ Route::middleware('auth')->group(function () {
 
     Route::resource('books', \App\Http\Controllers\BookController::class);
     Route::resource('categories', \App\Http\Controllers\CategoryController::class);
+
+    Route::delete('books/{book}/category/{category}', [\App\Http\Controllers\BookController::class, 'removeCategory'])->name('books.remove-category');
+    Route::put('books/{book}/category/{category}', [\App\Http\Controllers\BookController::class, 'addCategory'])->name('books.add-category');
 });
 
 require __DIR__.'/auth.php';
