@@ -16,7 +16,7 @@ class BookController extends Controller
     {
         return Inertia::render('Books/Index', [
             'books' => Book::with('categories')->get(),
-            'categories' => Category::all(),
+            'categories' => category::all(),
         ]);
     }
 
@@ -36,11 +36,10 @@ class BookController extends Controller
         $book = Book::create([
             'title' => $request->title,
             'author' => $request->author,
-            'year' => $request->year,
             'user_id' => auth()->id(),
         ]);
 
-        $book->categories()->attach($request->categories_id);
+        $book->categories()->attach($request->category);
     }
 
     /**
@@ -69,7 +68,6 @@ class BookController extends Controller
         }
         $book->update([
             'title' => $request->title,
-            'author' => $request->author,
             'year' => $request->year,
         ]);
     }
@@ -82,15 +80,15 @@ class BookController extends Controller
         if (!auth()->user()->books->contains($book)) {
             abort(403);
         }
-        $book->delete();
+        $Book->delete();
     }
 
-    public function addCategory(Request $request, Book $book, Category $category)
+    public function addCategory(Request $request, Book $book, Category $cat)
     {
         if (!auth()->user()->books->contains($book)) {
             abort(403);
         }
-        $book->categories()->attach($category->id);
+        $book->categories()->attach($cat->id);
     }
 
     public function removeCategory(Request $request, Book $book, Category $category)
@@ -98,6 +96,6 @@ class BookController extends Controller
         if (!auth()->user()->books->contains($book)) {
             abort(403);
         }
-        $book->categories()->detach($category->id);
+        $book->category()->detach($category->id);
     }
 }

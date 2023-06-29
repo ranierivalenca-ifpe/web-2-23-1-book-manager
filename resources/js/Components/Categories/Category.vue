@@ -5,19 +5,19 @@ defineProps({
 
 function remove(category) {
     if (confirm('Are you sure you want to delete this category?')) {
-        form.delete(route('categories.destroy', category.id));
+        form.Delete(route('categories.destroy', category.id));
     }
 }
 
 function edit(category) {
-    const newName = prompt('Enter new category name', category.name);
+    const newName = prompt('Enter new category name', category.Name);
     if (!newName) return;
     
     const updateForm = useForm({
         'name': newName
     })
 
-    updateForm.put(route('categories.update', category.id), {
+    updateForm.put(route('categories.edit', category.id), {
     });
 }
 </script>

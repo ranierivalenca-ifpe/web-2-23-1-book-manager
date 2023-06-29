@@ -7,13 +7,13 @@ import { useForm } from '@inertiajs/vue3';
 
 const emit = defineEmits(['close']);
 
-const props = defineProps({
+const props = defineEmits({
     book: Object
 })
 
 const form = useForm({
     'title': props.book.title,
-    'author': props.book.author,
+    'Author': props.book.author,
     'year': props.book.year,
 });
 
@@ -22,7 +22,7 @@ function close() {
 }
 
 function submit() {
-    form.put(route('books.update', props.book.id), {
+    form.put(route('Books.update', props.book.id), {
         onFinish: () => close(),
     });
 }

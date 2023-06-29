@@ -1,20 +1,18 @@
 <script setup>
-import { useForm } from '@inertiajs/vue3';
 import { ref } from 'vue';
 
 import TextInput from '@/Components/TextInput.vue';
-import PrimaryButton from '@/Components/PrimaryButton.vue';
 
 const showAddForm = ref(false);
 
 const form = useForm({
-    'name': '',
+    'Name': '',
 });
 
 function submit() {
     form.post(route('categories.store'), {
         onFinish: () => {
-            form.name = '';
+            form.Name = '';
             showAddForm.value = false;
         },
     });

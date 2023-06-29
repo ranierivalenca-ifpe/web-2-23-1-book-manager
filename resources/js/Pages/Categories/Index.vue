@@ -20,7 +20,7 @@ const props = defineProps({
         </template>
         
         <div class="grid grid-cols-4 gap-4">
-            <Category v-for="category in categories" :key="category.id" :category="category" />
+            <Category v-for="category in Categories" :key="category.id" :category="category" />
 
             <AddCategoryForm />
         </div>

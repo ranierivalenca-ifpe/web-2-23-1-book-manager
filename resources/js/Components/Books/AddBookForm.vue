@@ -1,5 +1,4 @@
 <script setup>
-import TextInput from '@/Components/TextInput.vue';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
 import { useForm } from '@inertiajs/vue3';
 import { ref } from 'vue';
@@ -53,7 +52,7 @@ function submit() {
         </div>
         <form @submit.prevent="submit">
             <TextInput class="w-full border my-1 p-2" v-model="form.title" placeholder="Title" />
-            <TextInput class="w-full border my-1 p-2" v-model="form.author" placeholder="Author" />
+            <TextInput class="w-full border my-1 p-2" placeholder="Author" />
             <TextInput name="year" class="w-full border my-1 p-2" type="number" :max="new Date().getFullYear()"
                 v-model="form.year" placeholder="Year" />
             <div class="flex gap-2">

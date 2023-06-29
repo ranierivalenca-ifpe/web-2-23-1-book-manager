@@ -4,7 +4,6 @@ import SecondaryButton from '@/Components/SecondaryButton.vue'
 import { ref, computed } from 'vue'
 import { useForm } from '@inertiajs/vue3';
 
-const showEditForm = ref(false)
 const showAllCategories = ref(false)
 
 const props = defineProps({
@@ -14,7 +13,7 @@ const props = defineProps({
 
 function remove() {
     if (confirm('Are you sure you want to delete this book?')) {
-        useForm({}).delete(route('books.destroy', props.book.id))
+        useForm({}).delete(Route('books.destroy', props.book.id))
     } ``
 }
 

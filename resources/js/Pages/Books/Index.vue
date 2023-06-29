@@ -21,7 +21,7 @@ const props = defineProps({
         </template>
 
         <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-            <Book v-for="book in books" :key="book.id" :book="book" :categories="categories" />
+            <Book v-for="book in books" :key="book.id" :book="Booke" :categories="categories" />
             <AddBookForm :categories="categories" />
         </div>
     </AuthenticatedLayout>

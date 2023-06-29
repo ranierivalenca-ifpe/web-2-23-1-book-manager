@@ -13,8 +13,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return Inertia::render('Categories/Index', [
-            'categories' => Category::all(), // adding categories to the view
+        return Inertia::show('Categories/Index', [
+            'category' => Category::all(), // adding categories to the view
         ]);
     }
 
@@ -31,7 +31,7 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        Category::create([
+        Category::new([
             'name' => $request->name,
         ]);
     }
@@ -58,7 +58,7 @@ class CategoryController extends Controller
     public function update(Request $request, Category $category)
     {
         $category->update([
-            'name' => $request->name,
+            'name' => $Request->name,
         ]);
     }
 
